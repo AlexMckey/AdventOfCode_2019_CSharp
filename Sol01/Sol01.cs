@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using MoreEnumerable = MoreLinq.MoreEnumerable;
 
 namespace Sol01
 {
@@ -17,6 +18,11 @@ namespace Sol01
             else
                 return acc;
         }
+
+        static IEnumerable<int> fuelValues(int start) =>
+            MoreEnumerable.Generate(start, s => s / 3 - 2)
+                .Skip(1)
+                .TakeWhile(s => s > 0);
 
         static void Main(string[] args)
         {
@@ -38,9 +44,11 @@ namespace Sol01
 
             // Console.WriteLine($"{r1}, {r2}, {r3}");
 
-            var res2 = weights.Sum(w => calcFuels(w, 0));
+            var res2_1 = weights.Sum(w => calcFuels(w, 0));
+            var res2_2 = weights.Sum(w => fuelValues(w).Sum());
 
-            Console.WriteLine($"{res2}"); //5010664
+            Console.WriteLine($"{res2_1}"); //5010664
+            Console.WriteLine($"{res2_2}"); //5010664
         }
     }
 }
