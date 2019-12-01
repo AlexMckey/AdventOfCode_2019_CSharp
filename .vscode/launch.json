@@ -10,9 +10,9 @@
       "request": "launch",
       "preLaunchTask": "build",
       // If you have changed target frameworks, make sure to update the program path.
-      "program": "${workspaceFolder}/Greeter/bin/Debug/netcoreapp3.0/Greeter.dll",
+      "program": "${workspaceFolder}/${relativeFileDirname}/bin/Debug/netcoreapp3.0/${relativeFileDirname}.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/Greeter",
+      "cwd": "${workspaceFolder}",
       // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
       "logging": {
         "programOutput": true,
@@ -21,6 +21,7 @@
         "exceptions": true
       },
       "console": "internalConsole",
+      //"requireExactSource": false,
       "stopAtEntry": false
     },
     {
